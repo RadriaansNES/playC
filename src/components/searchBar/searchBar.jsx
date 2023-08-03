@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchBar = () => {
-  const [name, setName] = useState("");
-
+const SearchBar = ({ searchQuery, setSearchQuery, handleSearch }) => {
   const handleKeyDown = (event) => {
-    if (event.keyCode === 13) {
-
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+      setSearchQuery("");
     }
   };
 
@@ -13,8 +13,8 @@ const SearchBar = () => {
     <form>
       <input
         type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown}
       />
     </form>
