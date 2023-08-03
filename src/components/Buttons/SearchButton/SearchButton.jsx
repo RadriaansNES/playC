@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SearchButton = ({ onClick, clearInput }) => {
+const SearchButton = ({ handleSearch, clearInput }) => {
   return (
-    <button type="button" onClick={() => { onClick(); clearInput(); }}>
+    <button type="button" onClick={() => { handleSearch(); clearInput(); }}>
       SEARCH
     </button>
   );

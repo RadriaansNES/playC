@@ -27,9 +27,10 @@ function App() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
+        clearInput={handleClearInput}
       />
       <SearchButton
-        onClick={handleSearch}
+        handleSearch={handleSearch}
         clearInput={handleClearInput}
       />
       <div className="content">
