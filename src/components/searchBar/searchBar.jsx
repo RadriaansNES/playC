@@ -17,7 +17,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, clearInput}) => 
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-    </form>
+    </form>  
   );
 };
 

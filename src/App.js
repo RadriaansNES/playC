@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import ColorChangingTitle from './components/ColorChange/ColorChange';
-import SearchBar from './components/SearchBar/SearchBar';
+import SearchBar from './components/SearchBar/searchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 import Playlist from './components/Playlist/Playlist';
 import Tracklist from './components/Tracklist/Tracklist';
