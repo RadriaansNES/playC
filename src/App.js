@@ -8,9 +8,11 @@ import Tracklist from './components/Tracklist/Tracklist';
 import SaveToSpotify from './components/Buttons/SaveToSpotify/SaveToSpotify';
 import Search from './components/Api/Search';
 import SearchButton from './components/Buttons/SearchButton/SearchButton'; 
+import ApiConnect from './components/Api/Api';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const accessToken = ApiConnect(); //since behind the scenes, not render just function
+  const [searchQuery, setSearchQuery] = useState(""); //since rendered
 
   const handleSearch = () => {
     Search(searchQuery);
