@@ -20,7 +20,7 @@ function App() {
 
   const handleClearInput = () => {
     setSearchQuery("");
-  };
+  };   
 
   return (
     <div className="App">
