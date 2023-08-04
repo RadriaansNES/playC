@@ -15,7 +15,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
 
   const handleSearch = () => {
-    Search(searchQuery);
+    Search(searchQuery, accessToken);
   };
 
   const handleClearInput = () => {
