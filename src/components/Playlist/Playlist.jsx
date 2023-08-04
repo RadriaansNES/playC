@@ -14,6 +14,7 @@ const Playlist = () => {
         value={list}
         onChange={(e) => setList(e.target.value)}
         onKeyDown={handleClick}
+        placeholder='Enter a playlist name'
       />
     </form>
   );
