@@ -13,10 +13,10 @@ import ApiConnect from './components/Api/Api';
 function App() {
   const accessToken = ApiConnect(); //since behind the scenes, not render just function
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
-  const [returnedSongs, setReturnedSongs] = useState([])
+  const [returnedInfo, setReturnedInfo] = useState([])
 
   const handleSearch = () => {
-    Search(searchQuery, accessToken);
+    Search(searchQuery, accessToken, setReturnedInfo);
   };
 
   const handleClearInput = () => {
@@ -39,7 +39,7 @@ function App() {
       <div className="content">
         <div className="results">
           <h2>Results</h2>
-          <SearchResults />
+          <SearchResults returnedInfo={returnedInfo}/>
         </div>
         <div className="playlist">
           <Playlist />
