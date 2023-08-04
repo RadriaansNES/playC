@@ -15,6 +15,6 @@ async function Search(searchQuery, accessToken) {
     .then(response => response.json())
     .then(data => console.log(data))
 
-}
+}   
 
 export default Search;
