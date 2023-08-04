@@ -13,6 +13,7 @@ import ApiConnect from './components/Api/Api';
 function App() {
   const accessToken = ApiConnect(); //since behind the scenes, not render just function
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
+  const [returnedSongs, setReturnedSongs] = useState([])
 
   const handleSearch = () => {
     Search(searchQuery, accessToken);
