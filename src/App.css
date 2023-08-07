@@ -30,24 +30,16 @@ h1 {
   border-radius: 10px;
 }
 
-.searchResultsContainer {
-  display: grid;
-}
-
 .searchResultItem {
   display: grid;
-  grid-template-columns: 1fr auto; /* Two columns, first one takes the remaining space, second one fits its content */
-  align-items: center; /* Center items vertically within each grid item */
+  grid-template-columns: 1fr auto; 
+  align-items: center; 
   color: white;
   border-radius: 10px;
 }
 
 .searchResultItem p {
   margin: 0;
-}
-
-.searchResultItem button {
-  margin: 5;
 }
 
 button {
