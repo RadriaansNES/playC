@@ -18,7 +18,7 @@ function App() {
   const [showContent, setShowContent] = useState(false);
   const [showInitial, setShowInitial] = useState(true);
 
-  //Functions to be used in other componenets
+  //Functions to be used in other components
   const handleSearch = () => {
     Search(searchQuery, accessToken, setReturnedInfo);
     setShowContent(true);

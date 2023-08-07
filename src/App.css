@@ -39,7 +39,7 @@ h1 {
   grid-template-columns: 1fr auto; 
   align-items: center; 
   color: white;
-  border-radius: 10px;
+  border-bottom: solid white;
 }
 
 .searchResultsContainer, .trackListContainer {
