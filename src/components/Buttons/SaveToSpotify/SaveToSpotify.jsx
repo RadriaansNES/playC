@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SaveToSpotify = () => {
-
-    return (
-        <button type="button">SAVE TO SPOTIFY</button>
-    );
+const SaveToSpotify = ({ postPlaylistToSpotify, clearInput, playlist, accessToken }) => {
+  return (
+    <button type="button" onClick={() => { postPlaylistToSpotify(playlist, accessToken); clearInput(); }}>SAVE TO SPOTIFY</button>
+  );
 };
 
 export default SaveToSpotify;

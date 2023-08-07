@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 async function Search(searchQuery, accessToken, setReturnedInfo) {
   console.log("Searching for " + searchQuery);
 
@@ -25,7 +23,6 @@ async function Search(searchQuery, accessToken, setReturnedInfo) {
     });
 
     setReturnedInfo(extractedData);
-    console.log(extractedData);
   } catch (error) {
     console.error("Error fetching data:", error);
   }

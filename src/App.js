@@ -9,12 +9,14 @@ import SaveToSpotify from './components/Buttons/SaveToSpotify/SaveToSpotify';
 import Search from './components/Api/Search';
 import SearchButton from './components/Buttons/SearchButton/SearchButton';
 import ApiConnect from './components/Api/Api';
+import postPlaylistToSpotify from './components/Api/PostPlaylist';
 
 function App() {
   const accessToken = ApiConnect(); //since behind the scenes, not render just function
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
   const [returnedInfo, setReturnedInfo] = useState([]);
   const [tracklistData, setTracklistData] = useState([]);
+  const [playlist, setPlaylist] = useState("");
   const [showContent, setShowContent] = useState(false);
   const [showInitial, setShowInitial] = useState(true);
 
@@ -27,6 +29,10 @@ function App() {
 
   const handleClearInput = () => {
     setSearchQuery("");
+  };
+
+  const handleClearPlaylist = () => {
+    setPlaylist("");
   };
 
   const addToTracklist = (item) => {
@@ -74,15 +80,15 @@ function App() {
             handleSearch={handleSearch}
             clearInput={handleClearInput}
           />
-          <div className="content">
+          <div className="content">Y
             <div className="results">
               <h2>Results</h2>
               <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
             </div>
             <div className="playlist">
-              <Playlist />
+              <Playlist playlist={playlist} setPlaylist={setPlaylist} clearInput={handleClearPlaylist} postPlaylistToSpotify={postPlaylistToSpotify} accessToken={accessToken}/>
               <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
-              <SaveToSpotify />
+              <SaveToSpotify postPlaylistToSpotify={postPlaylistToSpotify} clearInput={handleClearPlaylist}/>
             </div>
           </div>
         </div>
