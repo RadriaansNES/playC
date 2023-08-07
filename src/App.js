@@ -7,7 +7,7 @@ import Playlist from './components/Playlist/Playlist';
 import Tracklist from './components/Tracklist/Tracklist';
 import SaveToSpotify from './components/Buttons/SaveToSpotify/SaveToSpotify';
 import Search from './components/Api/Search';
-import SearchButton from './components/Buttons/SearchButton/SearchButton'; 
+import SearchButton from './components/Buttons/SearchButton/SearchButton';
 import ApiConnect from './components/Api/Api';
 
 function App() {
@@ -15,9 +15,12 @@ function App() {
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
   const [returnedInfo, setReturnedInfo] = useState([]);
   const [tracklistData, setTracklistData] = useState([]);
+  const [showContent, setShowContent] = useState(false);
 
+  //Functions to be used in other componenets
   const handleSearch = () => {
     Search(searchQuery, accessToken, setReturnedInfo);
+    setShowContent(true);
   };
 
   const handleClearInput = () => {
@@ -36,6 +39,7 @@ function App() {
     });
   };
 
+  //frame 
   return (
     <div className="App">
       <ColorChangingTitle />
@@ -49,17 +53,19 @@ function App() {
         handleSearch={handleSearch}
         clearInput={handleClearInput}
       />
-      <div className="content">
-        <div className="results">
-          <h2>Results</h2>
-          <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
+      {showContent && (
+        <div className="content">
+          <div className="results">
+            <h2>Results</h2>
+            <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
+          </div>
+          <div className="playlist">
+            <Playlist />
+            <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
+            <SaveToSpotify />
+          </div>
         </div>
-        <div className="playlist">
-          <Playlist />
-          <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
-          <SaveToSpotify />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
