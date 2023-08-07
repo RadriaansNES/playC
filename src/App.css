@@ -2,7 +2,7 @@
   text-align: center;
   background-image: url(background.jpg);
   background-size: cover;
-  height: 768px;
+  height: auto;
   width: auto;
   padding-top: 0px;
 }
@@ -20,6 +20,7 @@ h1 {
   justify-content: space-around;
   width: auto;
   margin-top: 50px;
+  padding-bottom: 100px;
   height: auto;
 }
 

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchResults = () => {
+const SearchResults = ({ returnedInfo }) => {
+  // Extract the first 10 items from the returnedInfo object
+  const firstTenItems = Object.values(returnedInfo).slice(0, 10);
 
-    return (
-        <div>
-            <p>song name 1</p>
-            <p>song name 1</p>
-            <p>song name 1</p>
-            <p>song name 1</p>
-        </div>
-    );
+  return (
+    <div>
+      {firstTenItems.map((item, index) => (
+        <p key={index}>{item.songName}<br/>{item.artistName} - {item.albumName} </p>
+      ))}
+    </div>
+  );
 };
 
 export default SearchResults;
