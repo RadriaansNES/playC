@@ -40,7 +40,6 @@ h1 {
   align-items: center; 
   color: white;
   border-radius: 10px;
-  max-height: 69px;
 }
 
 .searchResultsContainer, .trackListContainer {
@@ -104,6 +103,14 @@ input {
 .trackListItem p {
   font-size: 14px;
   margin-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.playlist input {
+  margin-bottom: 10px;
 }
 
 h2 {
