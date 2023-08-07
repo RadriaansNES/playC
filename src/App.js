@@ -16,11 +16,13 @@ function App() {
   const [returnedInfo, setReturnedInfo] = useState([]);
   const [tracklistData, setTracklistData] = useState([]);
   const [showContent, setShowContent] = useState(false);
+  const [showInitial, setShowInitial] = useState(true);
 
   //Functions to be used in other componenets
   const handleSearch = () => {
     Search(searchQuery, accessToken, setReturnedInfo);
     setShowContent(true);
+    setShowInitial(false);
   };
 
   const handleClearInput = () => {
@@ -42,27 +44,46 @@ function App() {
   //frame 
   return (
     <div className="App">
-      <ColorChangingTitle />
-      <SearchBar
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-        clearInput={handleClearInput}
-      />
-      <SearchButton
-        handleSearch={handleSearch}
-        clearInput={handleClearInput}
-      />
+      {showInitial && (
+      <div className='initial'>
+        <ColorChangingTitle />
+        <SearchBar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          handleSearch={handleSearch}
+          clearInput={handleClearInput}
+        />
+        <SearchButton
+          handleSearch={handleSearch}
+          clearInput={handleClearInput}
+        />
+      </div>
+      )}
+
+
       {showContent && (
-        <div className="content">
-          <div className="results">
-            <h2>Results</h2>
-            <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
-          </div>
-          <div className="playlist">
-            <Playlist />
-            <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
-            <SaveToSpotify />
+        <div className='postwrap'>
+          <ColorChangingTitle />
+          <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            handleSearch={handleSearch}
+            clearInput={handleClearInput}
+          />
+          <SearchButton
+            handleSearch={handleSearch}
+            clearInput={handleClearInput}
+          />
+          <div className="content">
+            <div className="results">
+              <h2>Results</h2>
+              <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
+            </div>
+            <div className="playlist">
+              <Playlist />
+              <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
+              <SaveToSpotify />
+            </div>
           </div>
         </div>
       )}

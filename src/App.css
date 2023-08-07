@@ -23,6 +23,10 @@ h1 {
   height: auto;
 }
 
+.initial input {
+  margin-top:200px;
+}
+
 .results, .playlist {
   background: rgba(	0, 139, 139, 0.8);
   color: white;
