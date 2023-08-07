@@ -2,7 +2,7 @@
   text-align: center;
   background-image: url(background.jpg);
   background-size: cover;
-  height: auto;
+  height: 768px;
   width: auto;
   padding-top: 0px;
 }
@@ -20,7 +20,6 @@ h1 {
   justify-content: space-around;
   width: auto;
   margin-top: 50px;
-  padding-bottom: 100px;
   height: auto;
 }
 
@@ -28,19 +27,32 @@ h1 {
   background: rgba(	0, 139, 139, 0.8);
   color: white;
   border-radius: 10px;
+  max-height: 402px;
 }
 
-.searchResultItem {
+.searchResultItem, .trackListItem {
   display: grid;
   grid-template-columns: 1fr auto; 
   align-items: center; 
   color: white;
   border-radius: 10px;
+  max-height: 69px;
+}
+
+.searchResultsContainer, .trackListContainer {
+  max-height: 350px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.trackListContainer {
+  max-height: 280px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 .searchResultItem p {
   margin: 0;
 }
+
 
 button {
   background-color: darkcyan;
@@ -72,12 +84,22 @@ input {
 
 .playlist button {
   background-color: white;
+
 }
 
-.results button {
+.results button, .trackListItem button {
   background-color: white;
   padding: 5px 10px;
   border-radius: 20px;
+}
+
+.playlist button {
+  margin: 15px;
+}
+
+.trackListItem p {
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 h2 {

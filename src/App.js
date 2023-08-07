@@ -13,7 +13,8 @@ import ApiConnect from './components/Api/Api';
 function App() {
   const accessToken = ApiConnect(); //since behind the scenes, not render just function
   const [searchQuery, setSearchQuery] = useState(""); //since rendered
-  const [returnedInfo, setReturnedInfo] = useState([])
+  const [returnedInfo, setReturnedInfo] = useState([]);
+  const [tracklistData, setTracklistData] = useState([]);
 
   const handleSearch = () => {
     Search(searchQuery, accessToken, setReturnedInfo);
@@ -21,7 +22,19 @@ function App() {
 
   const handleClearInput = () => {
     setSearchQuery("");
-  };   
+  };
+
+  const addToTracklist = (item) => {
+    setTracklistData((prevTracklistData) => [...prevTracklistData, item]);
+  };
+
+  const removeFromTracklist = (index) => {
+    setTracklistData((prevTracklistData) => {
+      const newTracklistData = [...prevTracklistData];
+      newTracklistData.splice(index, 1);
+      return newTracklistData;
+    });
+  };
 
   return (
     <div className="App">
@@ -37,13 +50,13 @@ function App() {
         clearInput={handleClearInput}
       />
       <div className="content">
-      <div className="results">
+        <div className="results">
           <h2>Results</h2>
-          <SearchResults returnedInfo={returnedInfo} />
+          <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
         </div>
         <div className="playlist">
           <Playlist />
-          <Tracklist />
+          <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
           <SaveToSpotify />
         </div>
       </div>

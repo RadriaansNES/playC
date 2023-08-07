@@ -15,7 +15,7 @@ async function Search(searchQuery, accessToken, setReturnedInfo) {
     const response = await fetch('https://api.spotify.com/v1/search?q=' + searchQuery + '&type=track', Parameters);
     const data = await response.json();
 
-    const first10Items = data.tracks.items.slice(0, 10);
+    const first10Items = data.tracks.items.slice(0, 20);
     const extractedData = first10Items.map(item => {
       return {
         songName: item.name,
