@@ -16,7 +16,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, clearInput}) => 
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Enter a song"
+        placeholder="Enter a song or artist name"
       />
     </form>  
   );

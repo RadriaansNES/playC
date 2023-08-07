@@ -5,9 +5,12 @@ const SearchResults = ({ returnedInfo }) => {
   const firstTenItems = Object.values(returnedInfo).slice(0, 10);
 
   return (
-    <div>
+    <div className="searchResultsContainer">
       {firstTenItems.map((item, index) => (
-        <p key={index}>{item.songName}<br/>{item.artistName} - {item.albumName} </p>
+        <div key={index} className="searchResultItem">
+          <p>{item.songName}<br/>{item.artistName} - {item.albumName}</p>
+          <button>+</button>
+        </div>
       ))}
     </div>
   );

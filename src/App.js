@@ -37,9 +37,9 @@ function App() {
         clearInput={handleClearInput}
       />
       <div className="content">
-        <div className="results">
+      <div className="results">
           <h2>Results</h2>
-          <SearchResults returnedInfo={returnedInfo}/>
+          <SearchResults returnedInfo={returnedInfo} />
         </div>
         <div className="playlist">
           <Playlist />
