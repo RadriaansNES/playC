@@ -22,10 +22,6 @@ function App() {
   const [showInitial, setShowInitial] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const userID = () => {
-    
-  }
-
   const handleSearch = () => {
     if (searchQuery !== '') {
       Search(searchQuery, accessToken, setReturnedInfo);
