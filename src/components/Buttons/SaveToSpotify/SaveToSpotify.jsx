@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SaveToSpotify = ({ handlePost, clearInput }) => {
+const SaveToSpotify = ({ handlePost }) => {
   return (
-    <button type="button" onClick={() => { handlePost(); clearInput(); }}>SAVE TO SPOTIFY</button>
+    <button type="button" onClick={() => { handlePost(); }}>SAVE TO SPOTIFY</button>
   );
 };
 

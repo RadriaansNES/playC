@@ -13,7 +13,7 @@ import postPlaylistToSpotify from './components/Api/PostPlaylist';
 import AuthButton from './components/Buttons/LogIn/LogIn';
 
 function App() {
-  const accessToken = ApiConnect(); 
+  const accessToken = ApiConnect();
   const [searchQuery, setSearchQuery] = useState("");
   const [playlist, setPlaylist] = useState("");
   const [returnedInfo, setReturnedInfo] = useState([]);
@@ -23,34 +23,18 @@ function App() {
 
   //Functions to be used in other components
   const handleSearch = () => {
-    Search(searchQuery, accessToken, setReturnedInfo);
-    setShowContent(true);
-    setShowInitial(false);
-  };
-
-  const handleClearInput = () => {
-    setSearchQuery("");
-  };
-
-  const handleClearPlaylist = () => {
-    setPlaylist("");
-  };
-
-  const addToTracklist = (item) => {
-    setTracklistData((prevTracklistData) => [...prevTracklistData, item]);
-  };
-
-  const removeFromTracklist = (index) => {
-    setTracklistData((prevTracklistData) => {
-      const newTracklistData = [...prevTracklistData];
-      newTracklistData.splice(index, 1);
-      return newTracklistData;
-    });
+    if (searchQuery !== '') {
+      Search(searchQuery, accessToken, setReturnedInfo);
+      setSearchQuery("");
+    }
   };
 
   const handlePost = () => {
     if (playlist !== '') {
       postPlaylistToSpotify(playlist, accessToken);
+      setPlaylist("");
+      setTracklistData([]);
+      setReturnedInfo([]);
     }
   };
 
@@ -58,10 +42,10 @@ function App() {
   return (
     <div className="App">
       {showInitial && (
-      <div className='initial'>
-        <ColorChangingTitle />
-        <AuthButton setShowContent={setShowContent} setShowInitial={setShowInitial}/>
-      </div>
+        <div className='initial'>
+          <ColorChangingTitle />
+          <AuthButton setShowContent={setShowContent} setShowInitial={setShowInitial} />
+        </div>
       )}
 
 
@@ -72,21 +56,19 @@ function App() {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             handleSearch={handleSearch}
-            clearInput={handleClearInput}
           />
           <SearchButton
             handleSearch={handleSearch}
-            clearInput={handleClearInput}
           />
           <div className="content">
             <div className="results">
               <h2>Results</h2>
-              <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
+              <SearchResults returnedInfo={returnedInfo} setTracklistData={setTracklistData} />
             </div>
             <div className="playlist">
-              <Playlist playlist={playlist} setPlaylist={setPlaylist} clearInput={handleClearPlaylist} handlePost={handlePost}/>
-              <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
-              <SaveToSpotify handlePost={handlePost} clearInput={handleClearPlaylist}/>
+              <Playlist playlist={playlist} setPlaylist={setPlaylist} handlePost={handlePost} />
+              <Tracklist tracklistData={tracklistData} setTracklistData={setTracklistData} />
+              <SaveToSpotify handlePost={handlePost} />
             </div>
           </div>
         </div>

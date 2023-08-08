@@ -1,11 +1,10 @@
 import React from 'react';
 
-const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, clearInput}) => {
+const SearchBar = ({ searchQuery, setSearchQuery, handleSearch}) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       handleSearch();
-      clearInput();
     }
   };
 

@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Playlist = ({playlist, setPlaylist, handlePost, clearInput}) => {
+const Playlist = ({playlist, setPlaylist, handlePost}) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       handlePost();
-      clearInput();
     }
   };
 
