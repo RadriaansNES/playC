@@ -70,9 +70,11 @@ h1 {
 
 button {
   background-color: darkcyan;
+  color: white;
   padding: 10px 50px;
   margin: 20px;
   border-radius: 20px;
+  font-size: 16px;
 }
 
 input {
@@ -98,11 +100,14 @@ input {
 
 .playlist button {
   background-color: white;
+  color: black;
+  font-size: 13.33px;
 
 }
 
 .results button, .trackListItem button {
   background-color: white;
+  color: black;
   padding: 5px 10px;
   border-radius: 20px;
 }
