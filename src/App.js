@@ -10,6 +10,7 @@ import Search from './components/Api/Search';
 import SearchButton from './components/Buttons/SearchButton/SearchButton';
 import ApiConnect from './components/Api/Api';
 import postPlaylistToSpotify from './components/Api/PostPlaylist';
+import AuthButton from './components/Buttons/LogIn/LogIn';
 
 function App() {
   const accessToken = ApiConnect(); //since behind the scenes, not render just function
@@ -57,16 +58,7 @@ function App() {
       {showInitial && (
       <div className='initial'>
         <ColorChangingTitle />
-        <SearchBar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          handleSearch={handleSearch}
-          clearInput={handleClearInput}
-        />
-        <SearchButton
-          handleSearch={handleSearch}
-          clearInput={handleClearInput}
-        />
+        <AuthButton />
       </div>
       )}
 

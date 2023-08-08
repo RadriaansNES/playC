@@ -23,8 +23,19 @@ h1 {
   height: auto;
 }
 
-.initial input {
-  margin-top:200px;
+.initial button:hover {
+  background-color: darkcyan;
+  color: white;
+}
+
+
+.initial button {
+  margin-top:215px;
+  background-color: white;
+  padding: 30px 50px;
+  border-radius: 20px;
+  font-size: 24px;
+  color: black;
 }
 
 .results, .playlist {
