@@ -7,7 +7,6 @@ const Playlist = ({playlist, setPlaylist, handlePost, clearInput}) => {
       event.preventDefault();
       handlePost();
       clearInput();
-
     }
   };
 

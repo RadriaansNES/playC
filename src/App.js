@@ -13,11 +13,11 @@ import postPlaylistToSpotify from './components/Api/PostPlaylist';
 import AuthButton from './components/Buttons/LogIn/LogIn';
 
 function App() {
-  const accessToken = ApiConnect(); //since behind the scenes, not render just function
-  const [searchQuery, setSearchQuery] = useState(""); //since rendered
+  const accessToken = ApiConnect(); 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [playlist, setPlaylist] = useState("");
   const [returnedInfo, setReturnedInfo] = useState([]);
   const [tracklistData, setTracklistData] = useState([]);
-  const [playlist, setPlaylist] = useState("");
   const [showContent, setShowContent] = useState(false);
   const [showInitial, setShowInitial] = useState(true);
 
@@ -49,7 +49,9 @@ function App() {
   };
 
   const handlePost = () => {
-    postPlaylistToSpotify(playlist, accessToken);
+    if (playlist !== '') {
+      postPlaylistToSpotify(playlist, accessToken);
+    }
   };
 
   //frame 
@@ -58,7 +60,7 @@ function App() {
       {showInitial && (
       <div className='initial'>
         <ColorChangingTitle />
-        <AuthButton />
+        <AuthButton setShowContent={setShowContent} setShowInitial={setShowInitial}/>
       </div>
       )}
 
@@ -76,7 +78,7 @@ function App() {
             handleSearch={handleSearch}
             clearInput={handleClearInput}
           />
-          <div className="content">Y
+          <div className="content">
             <div className="results">
               <h2>Results</h2>
               <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
