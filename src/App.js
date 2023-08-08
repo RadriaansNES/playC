@@ -22,7 +22,6 @@ function App() {
   const [showInitial, setShowInitial] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  //Functions to be used in other components
   const handleSearch = () => {
     if (searchQuery !== '') {
       Search(searchQuery, accessToken, setReturnedInfo);
@@ -44,7 +43,6 @@ function App() {
     }
   };
 
-  //frame 
   return (
     <div className="App">
       {showInitial && (
