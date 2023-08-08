@@ -116,6 +116,11 @@ input {
   border-radius: 20px;
 }
 
+.results button:hover, .trackListItem button:hover {
+  color: red;
+}
+
+
 .playlist button {
   margin: 15px;
 }
