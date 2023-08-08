@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Playlist = ({playlist, setPlaylist, postPlaylistToSpotify, clearInput, accessToken}) => {
+const Playlist = ({playlist, setPlaylist, handlePost, clearInput}) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      postPlaylistToSpotify(playlist, accessToken);
+      handlePost();
       clearInput();
 
     }

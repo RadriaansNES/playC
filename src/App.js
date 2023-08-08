@@ -47,6 +47,10 @@ function App() {
     });
   };
 
+  const handlePost = () => {
+    postPlaylistToSpotify(playlist, accessToken);
+  };
+
   //frame 
   return (
     <div className="App">
@@ -86,9 +90,9 @@ function App() {
               <SearchResults returnedInfo={returnedInfo} addToTracklist={addToTracklist} />
             </div>
             <div className="playlist">
-              <Playlist playlist={playlist} setPlaylist={setPlaylist} clearInput={handleClearPlaylist} postPlaylistToSpotify={postPlaylistToSpotify} accessToken={accessToken}/>
+              <Playlist playlist={playlist} setPlaylist={setPlaylist} clearInput={handleClearPlaylist} handlePost={handlePost}/>
               <Tracklist tracklistData={tracklistData} removeFromTracklist={removeFromTracklist} />
-              <SaveToSpotify postPlaylistToSpotify={postPlaylistToSpotify} clearInput={handleClearPlaylist}/>
+              <SaveToSpotify handlePost={handlePost} clearInput={handleClearPlaylist}/>
             </div>
           </div>
         </div>

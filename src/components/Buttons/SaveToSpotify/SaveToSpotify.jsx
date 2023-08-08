@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SaveToSpotify = ({ postPlaylistToSpotify, clearInput, playlist, accessToken }) => {
+const SaveToSpotify = ({ handlePost, clearInput }) => {
   return (
-    <button type="button" onClick={() => { postPlaylistToSpotify(playlist, accessToken); clearInput(); }}>SAVE TO SPOTIFY</button>
+    <button type="button" onClick={() => { handlePost(); clearInput(); }}>SAVE TO SPOTIFY</button>
   );
 };
 
