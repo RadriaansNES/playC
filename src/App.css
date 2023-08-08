@@ -129,6 +129,13 @@ h2 {
   text-align: left;
 }
 
+.successMessage {
+  margin-top: 80px;
+  font-size: 48px;
+  color: white;
+  background: rgba(	0, 139, 139, 0.8);
+}
+
 /* Media queries and defaults; */
 /* Default style for larger screens */
 input {

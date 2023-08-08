@@ -20,6 +20,7 @@ function App() {
   const [tracklistData, setTracklistData] = useState([]);
   const [showContent, setShowContent] = useState(false);
   const [showInitial, setShowInitial] = useState(true);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   //Functions to be used in other components
   const handleSearch = () => {
@@ -35,6 +36,11 @@ function App() {
       setPlaylist("");
       setTracklistData([]);
       setReturnedInfo([]);
+      setShowSuccessMessage(true);
+
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 2000);
     }
   };
 
@@ -71,6 +77,7 @@ function App() {
               <SaveToSpotify handlePost={handlePost} />
             </div>
           </div>
+          {showSuccessMessage && <button className="successMessage">Playlist saved successfully!</button>}
         </div>
       )}
     </div>
