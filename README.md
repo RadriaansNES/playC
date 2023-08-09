@@ -22,4 +22,7 @@ Console should now log; listening on 8888
 ### 3 
 Authorize your Spotify account and get to creating playlists!
 
-Cheers and enjoy!
+
+
+
+## Cheers and enjoy!
