@@ -8,17 +8,9 @@ import Tracklist from './components/Tracklist/Tracklist';
 import SaveToSpotify from './components/Buttons/SaveToSpotify/SaveToSpotify';
 import Search from './components/Api/Search';
 import SearchButton from './components/Buttons/SearchButton/SearchButton';
-import ApiConnect from './components/Api/Api';
 import postPlaylistToSpotify from './components/Api/PostPlaylist';
 import AuthButton from './components/Buttons/LogIn/LogIn';
-
-const getTokenFromUrl = () => {
-  return window.location.hash.substring(1).split('&').reduce((initial, item) => {
-    let parts = item.split("=");
-    initial[parts[0]] = decodeURIComponent(parts[1]);
-    return initial;
-  }, {});
-};
+import getTokenFromUrl from './components/Api/Api';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
