@@ -3,7 +3,7 @@
 ## How to run
 
 ### 0
-Create an app in Spotify Dashboard. 
+Create an app in Spotify Dashboard. <br>
 Copy client ID and client secret from said dashboard into into 'playC\server\authorization_code' on line 16, and 17, respectively
 
 ### 1
