@@ -6,7 +6,7 @@ const AuthButton = ({ setShowContent , setShowInitial}) => {
     // Call the setShowContent function to set showContent to true
     setShowContent(true);
     setShowInitial(false);
-    /*window.location.href = 'http://localhost:8888';*/
+    window.location.href = 'http://localhost:8888/login';
   };
 
   return (
