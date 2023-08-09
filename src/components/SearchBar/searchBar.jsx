@@ -1,11 +1,10 @@
 import React from 'react';
 
-const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, clearInput}) => {
+const SearchBar = ({ searchQuery, setSearchQuery, handleSearch}) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       handleSearch();
-      clearInput();
     }
   };
 
@@ -16,6 +15,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, clearInput}) => 
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown}
+        placeholder="Enter a song or artist name"
       />
     </form>  
   );

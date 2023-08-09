@@ -1,10 +1,9 @@
-// ColorChangingTitle.js
 import React, { useState, useEffect } from 'react';
 
 const ColorChangingTitle = () => {
   const [coloredLetters, setColoredLetters] = useState([]);
   const titleText = 'Playlist Creator'; 
-  const intervalDuration = 500; // Time interval for color change in milliseconds
+  const intervalDuration = 500; 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -12,7 +11,7 @@ const ColorChangingTitle = () => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % titleText.length);
     }, intervalDuration);
 
-    // Clear the interval when the component is unmounted
+    
     return () => clearInterval(intervalId);
   }, []);
 

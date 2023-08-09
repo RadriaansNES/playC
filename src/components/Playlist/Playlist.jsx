@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Playlist = () => {
-  const [list, setList] = useState("");
+const Playlist = ({playlist, setPlaylist, handlePost}) => {
 
-  const handleClick = (event) => {
-
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handlePost();
+    }
   };
 
   return (
     <form>
       <input
         type="text"
-        value={list}
-        onChange={(e) => setList(e.target.value)}
-        onKeyDown={handleClick}
+        value={playlist}
+        onChange={(e) => setPlaylist(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder='Enter a playlist name'
       />
     </form>
   );

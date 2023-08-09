@@ -23,16 +23,62 @@ h1 {
   height: auto;
 }
 
-.results, .playlist {
-  background: rgba(	0, 139, 139, 0.8);
+.initial button:hover {
+  background-color: darkcyan;
   color: white;
 }
 
+
+.initial button {
+  margin-top:215px;
+  background-color: white;
+  padding: 30px 50px;
+  border-radius: 20px;
+  font-size: 24px;
+  color: black;
+}
+
+.results, .playlist {
+  background: rgba(	0, 139, 139, 0.8);
+  color: white;
+  border-radius: 10px;
+  max-height: 402px;
+}
+
+.searchResultItem, .trackListItem {
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  align-items: center; 
+  color: white;
+  border-bottom: solid white;
+}
+
+.searchResultsContainer, .trackListContainer {
+  max-height: 350px; 
+  overflow-y: auto; 
+}
+
+.trackListContainer {
+  max-height: 280px;
+  overflow-y: auto; 
+}
+
+.searchResultItem p {
+  margin: 0;
+}
+
+
 button {
   background-color: darkcyan;
+  color: white;
   padding: 10px 50px;
   margin: 20px;
   border-radius: 20px;
+  font-size: 16px;
+}
+
+button:hover {
+  color: black;
 }
 
 input {
@@ -52,13 +98,60 @@ input {
   text-align: left;
 }
 
+.playlist input::placeholder {
+  color: white;
+}
+
 .playlist button {
   background-color: white;
+  color: black;
+  font-size: 13.33px;
+
+}
+
+.results button, .trackListItem button {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.results button:hover, .trackListItem button:hover {
+  color: red;
+}
+
+
+.playlist button {
+  margin: 15px;
+}
+
+.playlist button:hover {
+  color: red;
+}
+
+.trackListItem p {
+  font-size: 14px;
+  margin-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.playlist input {
+  margin-bottom: 10px;
 }
 
 h2 {
   margin: 10px;
   text-align: left;
+}
+
+.successMessage {
+  margin-top: 80px;
+  font-size: 48px;
+  color: white;
+  background: rgba(	0, 139, 139, 0.8);
 }
 
 /* Media queries and defaults; */

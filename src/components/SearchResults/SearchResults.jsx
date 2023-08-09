@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchResults = () => {
+const SearchResults = ({ returnedInfo, setTracklistData }) => {
+  
+  const firstTenItems = Object.values(returnedInfo).slice(0, 20);
 
-    return (
-        <div>
-            <p>song name 1</p>
-            <p>song name 1</p>
-            <p>song name 1</p>
-            <p>song name 1</p>
+  const addToTracklist = (item) => {
+    setTracklistData((prevTracklistData) => [...prevTracklistData, item]);
+  };
+
+  return (
+    <div className="searchResultsContainer">
+      {firstTenItems.map((item, index) => (
+        <div key={index} className="searchResultItem">
+          <p>{item.songName}<br/>{item.artistName} - {item.albumName}</p>
+          <button onClick={() => addToTracklist(item)}>+</button>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default SearchResults;
