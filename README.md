@@ -1,5 +1,5 @@
 # The Great Playlist Creator
-##How to run
+## How to run
 
 ### 0
 Create an app in Spotify Dashboard. 
