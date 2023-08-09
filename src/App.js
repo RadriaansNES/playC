@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ColorChangingTitle from './components/ColorChange/ColorChange';
 import SearchBar from './components/SearchBar/searchBar';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -12,8 +12,15 @@ import ApiConnect from './components/Api/Api';
 import postPlaylistToSpotify from './components/Api/PostPlaylist';
 import AuthButton from './components/Buttons/LogIn/LogIn';
 
+const getTokenFromUrl = () => {
+  return window.location.hash.substring(1).split('&').reduce((initial, item) => {
+    let parts = item.split("=");
+    initial[parts[0]] = decodeURIComponent(parts[1]);
+    return initial;
+  }, {});
+};
+
 function App() {
-  const accessToken = ApiConnect();
   const [searchQuery, setSearchQuery] = useState("");
   const [playlist, setPlaylist] = useState("");
   const [returnedInfo, setReturnedInfo] = useState([]);
@@ -21,6 +28,22 @@ function App() {
   const [showContent, setShowContent] = useState(false);
   const [showInitial, setShowInitial] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [accessToken, setAccessToken] = useState("");
+
+  useEffect(() => {
+    const Token = getTokenFromUrl().access_token
+    window.location.hash = "";
+
+    if (Token) {
+      setAccessToken(Token);
+      setShowContent(true);
+      setShowInitial(false);
+    }
+  }, []); 
+
+  useEffect(() => {
+    console.log('successful token creation:', accessToken);
+  }, [accessToken]); // check for token
 
   const handleSearch = () => {
     if (searchQuery !== '') {
