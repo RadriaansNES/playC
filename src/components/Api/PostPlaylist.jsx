@@ -1,4 +1,4 @@
-async function postPlaylistToSpotify(playlist, accessToken) {
+async function postPlaylistToSpotify(playlist, accessToken, songIDs) {
   const playlistData = {
     name: playlist,
     description: 'Sent from Ryguys Spotify App!',
@@ -13,7 +13,6 @@ async function postPlaylistToSpotify(playlist, accessToken) {
   };
 
   try {
-    
     const response = await fetch('https://api.spotify.com/v1/me', getUserInfoOptions);
     const userData = await response.json();
 
@@ -22,7 +21,6 @@ async function postPlaylistToSpotify(playlist, accessToken) {
       return;
     }
 
-   
     const createPlaylistOptions = {
       method: 'POST',
       headers: {
@@ -35,8 +33,28 @@ async function postPlaylistToSpotify(playlist, accessToken) {
     const createPlaylistResponse = await fetch(`https://api.spotify.com/v1/users/${userData.id}/playlists`, createPlaylistOptions);
 
     if (createPlaylistResponse.ok) {
-     
-      console.log('Playlist created successfully');
+      const playlistData = await createPlaylistResponse.json();
+      const playlistId = playlistData.id;
+
+
+      const addTracksOptions = {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + accessToken,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uris: songIDs.map(songID => `spotify:track:${songID}`),
+        }),
+      };
+
+      const addTracksResponse = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, addTracksOptions);
+
+      if (addTracksResponse.ok) {
+        console.log('Tracks added to playlist successfully');
+      } else {
+        console.error('Error adding tracks to playlist:', addTracksResponse.status, addTracksResponse.statusText);
+      }
     } else {
       console.error('Error creating playlist:', createPlaylistResponse.status, createPlaylistResponse.statusText);
     }

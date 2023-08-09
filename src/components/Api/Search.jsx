@@ -18,7 +18,8 @@ async function Search(searchQuery, accessToken, setReturnedInfo) {
       return {
         songName: item.name,
         artistName: item.artists[0].name,
-        albumName: item.album.name
+        albumName: item.album.name,
+        songID: item.id
       };
     });
 

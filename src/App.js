@@ -33,10 +33,6 @@ function App() {
     }
   }, []); 
 
-  useEffect(() => {
-    console.log('successful token creation:', accessToken);
-  }, [accessToken]); 
-
   const handleSearch = () => {
     if (searchQuery !== '') {
       Search(searchQuery, accessToken, setReturnedInfo);
@@ -44,19 +40,27 @@ function App() {
     }
   };
 
-  const handlePost = () => {
-    if (playlist !== '') {
-      postPlaylistToSpotify(playlist, accessToken);
-      setPlaylist("");
-      setTracklistData([]);
-      setReturnedInfo([]);
-      setShowSuccessMessage(true);
-
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 2000);
+  const handlePost = async () => {
+    if (playlist !== '' && tracklistData.length > 0) {
+      const songIDs = tracklistData.map(item => item.songID);
+  
+      try {
+        await postPlaylistToSpotify(playlist, accessToken, songIDs);
+  
+        setPlaylist("");
+        setTracklistData([]);
+        setReturnedInfo([]);
+        setShowSuccessMessage(true);
+  
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+        }, 2000);
+      } catch (error) {
+        console.error('Error creating playlist or adding tracks:', error);
+      }
     }
   };
+  
 
   return (
     <div className="App">

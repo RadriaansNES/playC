@@ -11,7 +11,7 @@ const ColorChangingTitle = () => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % titleText.length);
     }, intervalDuration);
 
-    // Clear the interval when the component is unmounted
+    
     return () => clearInterval(intervalId);
   }, []);
 
