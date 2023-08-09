@@ -35,7 +35,7 @@ function App() {
 
   useEffect(() => {
     console.log('successful token creation:', accessToken);
-  }, [accessToken]); // check for token
+  }, [accessToken]); 
 
   const handleSearch = () => {
     if (searchQuery !== '') {

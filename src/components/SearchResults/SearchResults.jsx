@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchResults = ({ returnedInfo, setTracklistData }) => {
-  // Extract the first 10 items from the returnedInfo object
+  
   const firstTenItems = Object.values(returnedInfo).slice(0, 20);
 
   const addToTracklist = (item) => {
